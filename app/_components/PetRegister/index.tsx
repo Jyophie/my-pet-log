@@ -73,7 +73,7 @@ const PetRegister = () => {
     },
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["pets"] });
-      handleCloseModal();
+      openModalFunc();
     },
   });
 
@@ -82,7 +82,7 @@ const PetRegister = () => {
     if (pathname === "/settings/pet-register") {
       router.replace("/settings"); // replace 사용하여 페이지 새로고침 없이 이동
     } else if (pathname === "/pet-register") {
-      router.replace("/home"); // replace 사용하여 페이지 새로고침 없이 이동
+      router.replace("/home-select"); // replace 사용하여 페이지 새로고침 없이 이동
     }
   };
 
@@ -329,7 +329,6 @@ const PetRegister = () => {
         <div
           className={styles.closeIcon}
           onClick={() => {
-            console.log("설마 이거냐?");
             router.back();
           }}
         >
